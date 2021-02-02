@@ -1,5 +1,5 @@
 /* 设置后台项目名称 */
-const BASE_URL = '/download';
+const BASE_URL = '/demo_rt';
 export default {
 
     /** Session操作 */
@@ -82,7 +82,16 @@ export default {
     /* 批量插入ProjectPlus */
     "insertsProjectPlus": BASE_URL + '/ProjectPlusController/inserts',
     /* 多条件更新ProjectPlus */
-    "updateBaseProjectPlus": BASE_URL + '/ProjectPlusController/updateBase'
+    "updateBaseProjectPlus": BASE_URL + '/ProjectPlusController/updateBase',
+
+    /* 获取demo */
+    "getGraphDemo": BASE_URL + '/GraphController/getGraphDemo',
+
+    /* 获取追踪 */
+    "getGraphTrack": BASE_URL + '/GraphController/getGraphTrack',
+
+    /* 获取追踪 */
+    "getGraphCategoryTree": BASE_URL + '/GraphController/getGraphCategoryTree'
 
 
 }

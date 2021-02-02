@@ -38,148 +38,49 @@ const ProjectPlusModuleList = r => require.ensure([], () => r(require('@/views/P
 const ProjectPlusModuleAdd = r => require.ensure([], () => r(require('@/views/ProjectPlusModule/add')), 'ProjectPlusModuleAdd')
 
 
+/* ProjectPlusModuleAdd添加 */
+const Graph = r => require.ensure([], () => r(require('@/views/graph/Graph')), 'Graph');
+const GraphTrack = r => require.ensure([], () => r(require('@/views/graph/GraphTrack')), 'Graph');
+const GraphCategoryTree = r => require.ensure([], () => r(require('@/views/graph/GraphCategoryTree')), 'Graph');
+
 export const constantRouterMap = [
     {
         path: '',
         component: Layout,
-        redirect: '/ResourceManagerList',
-        name: 'resourceManager',
+        redirect: '/Graph',
+        name: 'Graph',
         meta: {
-            title: '资源管理'
+            title: 'Graph'
         },
         noDropdown: true,
         children: [
             {
-                path: 'ResourceManagerList',
-                component: ResourceManagerList,
-                name: 'ResourceManagerList',
+                path: 'Graph',
+                component: Graph,
+                name: 'Graph',
                 meta: {
-                    title: '资源列表'
-                },
-                hidden: false
-            }, {
-                path: 'ResourceManagerAdd',
-                component: ResourceManagerAdd,
-                name: 'ResourceManagerAdd',
-                meta: {
-                    title: '资源添加'
+                    title: 'Graph'
                 },
                 hidden: false
             },
             {
-                path: 'ResourceManagerView',
-                component: ResourceManagerView,
-                name: 'ResourceManagerView',
+                path: 'GraphTrack',
+                component: GraphTrack,
+                name: 'GraphTrack',
                 meta: {
-                    title: '资源查看'
-                },
-                hidden: true
-            }
-        ]
-    },
-    {
-        path: '',
-        component: Layout,
-        redirect: '/homepage',
-        name: 'HomePage',
-        meta: {
-            title: '业务管理'
-        },
-        noDropdown: true,
-        children: [
-            {
-                path: 'ProjectModulelist',
-                component: ProjectModuleList,
-                name: 'ProjectModuleList',
-                meta: {
-                    title: 'ProjectModuleList列表'
+                    title: 'GraphTrack'
                 },
                 hidden: false
             },
-
             {
-                path: 'ProjectModuleview',
-                component: ProjectModuleView,
-                name: 'ProjectModuleView',
+                path: 'GraphCategoryTree',
+                component: GraphCategoryTree,
+                name: 'GraphCategoryTree',
                 meta: {
-                    title: 'ProjectModuleUpdate更新'
-                },
-                hidden: true
-            }
-            ,
-            {
-                path: 'ProjectModuleedit',
-                component: ProjectModuleEdit,
-                name: 'ProjectModuleEdit',
-                meta: {
-                    title: 'ProjectModuleEdit编辑'
-                },
-                hidden: true
-            }
-            ,
-            {
-                path: 'ProjectModuleadd',
-                component: ProjectModuleAdd,
-                name: 'ProjectModuleAdd',
-                meta: {
-                    title: 'ProjectModuleAdd添加'
-                },
-                hidden: true
-            }
-
-        ]
-    },
-    {
-        path: '',
-        component: Layout,
-        redirect: '/homepage',
-        name: 'HomePage',
-        meta: {
-            title: '业务管理'
-        },
-        noDropdown: true,
-        children: [
-            {
-                path: 'ProjectPlusModulelist',
-                component: ProjectPlusModuleList,
-                name: 'ProjectPlusModuleList',
-                meta: {
-                    title: 'ProjectPlusModuleList列表'
+                    title: 'GraphCategoryTree'
                 },
                 hidden: false
             }
-            ,
-            {
-                path: 'ProjectPlusModuleview',
-                component: ProjectPlusModuleView,
-                name: 'ProjectPlusModuleView',
-                meta: {
-                    title: 'ProjectPlusModuleUpdate更新'
-                },
-                hidden: true
-            }
-            ,
-            {
-                path: 'ProjectPlusModuleedit',
-                component: ProjectPlusModuleEdit,
-                name: 'ProjectPlusModuleEdit',
-                meta: {
-                    title: 'ProjectPlusModuleEdit编辑'
-                },
-                hidden: true
-            }
-            ,
-
-            {
-                path: 'ProjectPlusModuleadd',
-                component: ProjectPlusModuleAdd,
-                name: 'ProjectPlusModuleAdd',
-                meta: {
-                    title: 'ProjectPlusModuleAdd添加'
-                },
-                hidden: true
-            }
-
         ]
     },
     {
