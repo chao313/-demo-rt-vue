@@ -94,35 +94,6 @@
                     'layouts': [
                         {
                             'label': '布局1',
-                            'layoutName': 'center',
-                            'layoutClassName': 'seeks-layout-center',
-                            useLayoutStyleOptions: true,
-                            'defaultNodeWidth': '50',
-                            'defaultNodeHeight': '50',
-                            defaultNodeBorderWidth: 0,
-                            defaultNodeColor: 'rgba(238, 178, 94, 1)',
-                            defaultLineShape: 1
-                        },
-                        {
-                            'label': '布局2',
-                            'layoutName': 'tree',
-                            'layoutClassName': 'seeks-layout-center',
-                            useLayoutStyleOptions: true,
-                            'from': 'top',
-                            'defaultNodeWidth': '30',
-                            'defaultNodeHeight': '100',
-                            'defaultJunctionPoint': 'tb',
-                            'defaultNodeShape': 1,
-                            'defaultLineShape': 4,
-                            'defaultNodeBorderWidth': 0,
-                            'defaultLineColor': 'rgba(0, 186, 189, 1)',
-                            'defaultNodeColor': 'rgba(0, 206, 209, 1)',
-                            'min_per_width': 40,
-                            'max_per_width': 70,
-                            'min_per_height': 200
-                        },
-                        {
-                            'label': '布局3',
                             'layoutName': 'tree',
                             'layoutClassName': 'seeks-layout-center',
                             useLayoutStyleOptions: true,
@@ -139,6 +110,35 @@
                             'max_per_width': 400,
                             'min_per_height': 40,
                             'max_per_height': 70
+                        },
+                        {
+                            'label': '布局2',
+                            'layoutName': 'center',
+                            'layoutClassName': 'seeks-layout-center',
+                            useLayoutStyleOptions: true,
+                            'defaultNodeWidth': '50',
+                            'defaultNodeHeight': '50',
+                            defaultNodeBorderWidth: 0,
+                            defaultNodeColor: 'rgba(238, 178, 94, 1)',
+                            defaultLineShape: 1
+                        },
+                        {
+                            'label': '布局3',
+                            'layoutName': 'tree',
+                            'layoutClassName': 'seeks-layout-center',
+                            useLayoutStyleOptions: true,
+                            'from': 'top',
+                            'defaultNodeWidth': '30',
+                            'defaultNodeHeight': '100',
+                            'defaultJunctionPoint': 'tb',
+                            'defaultNodeShape': 1,
+                            'defaultLineShape': 4,
+                            'defaultNodeBorderWidth': 0,
+                            'defaultLineColor': 'rgba(0, 186, 189, 1)',
+                            'defaultNodeColor': 'rgba(0, 206, 209, 1)',
+                            'min_per_width': 40,
+                            'max_per_width': 70,
+                            'min_per_height': 200
                         }
                     ],
                     defaultJunctionPoint: 'border'
