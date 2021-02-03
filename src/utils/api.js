@@ -91,6 +91,12 @@ export default {
     "getGraphTrack": BASE_URL + '/GraphController/getGraphTrack',
 
     /* 获取追踪 */
+    "getGraphTrackByMethod": BASE_URL + '/GraphController/getGraphTrackByMethod',
+
+    /* 获取追踪 */
+    "getGraphTrackDefaultController": BASE_URL + '/GraphController/getGraphTrackDefaultController',
+
+    /* 获取追踪 */
     "getGraphCategoryTree": BASE_URL + '/GraphController/getGraphCategoryTree'
 
 

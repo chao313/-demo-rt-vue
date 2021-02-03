@@ -38,10 +38,12 @@ const ProjectPlusModuleList = r => require.ensure([], () => r(require('@/views/P
 const ProjectPlusModuleAdd = r => require.ensure([], () => r(require('@/views/ProjectPlusModule/add')), 'ProjectPlusModuleAdd')
 
 
-/* ProjectPlusModuleAdd添加 */
+/* 图谱 */
 const Graph = r => require.ensure([], () => r(require('@/views/graph/Graph')), 'Graph');
-const GraphTrack = r => require.ensure([], () => r(require('@/views/graph/GraphTrack')), 'Graph');
-const GraphCategoryTree = r => require.ensure([], () => r(require('@/views/graph/GraphCategoryTree')), 'Graph');
+const GraphTrack = r => require.ensure([], () => r(require('@/views/graph/GraphTrack')), 'GraphTrack');
+const GraphTrackMethod = r => require.ensure([], () => r(require('@/views/graph/GraphTrackMethod')), 'GraphTrackMethod');
+const GraphTrackController = r => require.ensure([], () => r(require('@/views/graph/GraphTrackController')), 'GraphTrackController');
+const GraphCategoryTree = r => require.ensure([], () => r(require('@/views/graph/GraphCategoryTree')), 'GraphCategoryTree');
 
 export const constantRouterMap = [
     {
@@ -69,6 +71,24 @@ export const constantRouterMap = [
                 name: 'GraphTrack',
                 meta: {
                     title: 'GraphTrack'
+                },
+                hidden: false
+            },
+            {
+                path: 'GraphTrackMethod',
+                component: GraphTrackMethod,
+                name: 'GraphTrackMethod',
+                meta: {
+                    title: 'GraphTrackMethod'
+                },
+                hidden: false
+            },
+            {
+                path: 'GraphTrackController',
+                component: GraphTrackController,
+                name: 'GraphTrackController',
+                meta: {
+                    title: 'GraphTrackController'
                 },
                 hidden: false
             },

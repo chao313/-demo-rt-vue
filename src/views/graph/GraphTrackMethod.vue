@@ -5,30 +5,8 @@
                     ref="seeksRelationGraph"
                     :options="graphOptions"
                     :on-node-click="onNodeClick"
-                    :on-line-click="onLineClick">
-                <div slot="node" slot-scope="{node}" @mouseover="showNodeTips(node, $event)"
-                     @mouseout="hideNodeTips(node, $event)">
-                    <!--                    <div style="height:64px;line-height: 64px;border-radius: 32px;cursor: pointer;">-->
-                    <!--                        <i style="font-size: 30px;" :class="node.data.myicon"/>-->
-                    <!--                    </div>-->
-                    <div>
-                        {{ node.text }}
-                    </div>
-                </div>
-                <div slot="bottomPanel"
-                     style="border-top:#efefef solid 1px;height:60px;line-height: 60px;text-align: center;font-size: 18px;background-color: #ffffff;">
-                    这里是底部插槽 slot="bottomPanel",可以自定义这里的内容
-                </div>
-            </SeeksRelationGraph>
-        </div>
-        <div v-if="isShowNodeTipsPanel"
-             :style="{left: nodeMenuPanelPosition.x + 'px', top: nodeMenuPanelPosition.y + 'px' }"
-             style="z-index: 999;padding:10px;background-color: #ffffff;border:#eeeeee solid 1px;box-shadow: 0px 0px 8px #cccccc;position: absolute;">
-            <div style="line-height: 25px;color: #888888;font-size: 12px;">
-                方法名称：{{currentNode.data.sourceMethodInfo}}
-            </div>
-            <div class="c-node-menu-item">方法耗时:{{currentNode.data.costInfo}}</div>
-            <div class="c-node-menu-item">方法结果:{{currentNode.data.resultInfo}}</div>
+                    :on-line-click="onLineClick"
+            />
         </div>
         <el-button type="success" class="c-show-code-button">
             <el-link href="https://github.com/seeksdream/relation-graph/blob/master/doc/demo/Demo4AdvMultiLayout.vue"
@@ -59,32 +37,6 @@
         data() {
             return {
                 isShowCodePanel: false,
-                isShowNodeTipsPanel: false,
-                nodeMenuPanelPosition: {x: 0, y: 0},
-                currentNode: {
-                    "data": {
-                        "fatherTrackInfo": null,
-                        "uuid": "727d6a4cb2744ece9f6ff19b108fbac9",
-                        "classNameInfo": "demo.rt.config.RedisConfig$$FastClassBySpringCGLIB$$935ecd32",
-                        "methodNameInfo": "getIndex",
-                        "parameterCountInfo": 1,
-                        "parameterTypesInfo": [
-                            "org.springframework.cglib.core.Signature"
-                        ],
-                        "argsInfo": [
-                            "listOperations(Lorg/springframework/data/redis/core/RedisTemplate;)Lorg/springframework/data/redis/core/ListOperations;"
-                        ],
-                        "returnTypeInfo": "int",
-                        "resultInfo": 5,
-                        "startInfo": 1612333185917,
-                        "endInfo": 1612333185917,
-                        "costInfo": 0,
-                        "sourceObjectInfo": "class demo.rt.config.RedisConfig",
-                        "sourceMethodInfo": "public int demo.rt.config.RedisConfig$$FastClassBySpringCGLIB$$935ecd32.getIndex(org.springframework.cglib.core.Signature)",
-                        "childTrackSizeInfo": null,
-                        "childTrackInfos": []
-                    }
-                },
                 graphOptions: {
                     allowSwitchLineShape: true,
                     allowSwitchJunctionPoint: true,
@@ -155,7 +107,11 @@
         methods: {
             showSeeksGraph(query) {
                 let self = this;
-                self.$http.get(self.api.getGraphTrack, {},
+                self.$http.get(self.api.getGraphTrackByMethod, {
+                        params: {
+                            method: "demo.rt.controller.TrackController#trackTest"
+                        }
+                    },
                     function (response) {
                         if (response.code == 0) {
                             // JSON.parse(JSON.stringify(self.request));
@@ -190,18 +146,6 @@
             },
             onLineClick(lineObject, $event) {
                 console.log('onLineClick:', lineObject)
-            },
-            showNodeTips(nodeObject, $event) {
-                this.currentNode = nodeObject
-                // var _base_position =  nodeObject.getClientRects();
-                // var _base_position = this.$refs.myPage.getBoundingClientRect()
-                // console.log('showNodeMenus:', $event, _base_position)
-                this.isShowNodeTipsPanel = true
-                this.nodeMenuPanelPosition.x = $event.clientX - 10;
-                this.nodeMenuPanelPosition.y = $event.clientY - 10;
-            },
-            hideNodeTips(nodeObject, $event) {
-                this.isShowNodeTipsPanel = false
             }
         }
     }
