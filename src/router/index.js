@@ -44,6 +44,7 @@ const GraphTrack = r => require.ensure([], () => r(require('@/views/graph/GraphT
 const GraphTrackMethod = r => require.ensure([], () => r(require('@/views/graph/GraphTrackMethod')), 'GraphTrackMethod');
 const GraphTrackController = r => require.ensure([], () => r(require('@/views/graph/GraphTrackController')), 'GraphTrackController');
 const GraphCategoryTree = r => require.ensure([], () => r(require('@/views/graph/GraphCategoryTree')), 'GraphCategoryTree');
+const GraphFromData = r => require.ensure([], () => r(require('@/views/graph/GraphFromData')), 'GraphFromData');
 
 export const constantRouterMap = [
     {
@@ -98,6 +99,15 @@ export const constantRouterMap = [
                 name: 'GraphCategoryTree',
                 meta: {
                     title: 'GraphCategoryTree'
+                },
+                hidden: false
+            },
+            {
+                path: 'GraphFromData',
+                component: GraphFromData,
+                name: 'GraphFromData',
+                meta: {
+                    title: 'GraphFromData'
                 },
                 hidden: false
             }
